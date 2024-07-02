@@ -16,7 +16,7 @@ const List = () => {
     }
 
     const searchVal = (search) => {
-        if(search === null || search === "") {
+        if(search == "") {
             setBlogs(Blogs);
         }
         else{
@@ -29,8 +29,8 @@ const List = () => {
     
     return ( 
         <div className="blogslist"> 
-            <ListCall Blogs={Blogs} title="All todo list" deleteBlog={deleteBlog} />
             <SearchBar searchVal={searchVal}/>
+            <ListCall Blogs={Blogs} title="All todo list" deleteBlog={deleteBlog} />
         </div>
     );
 }

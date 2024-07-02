@@ -13,10 +13,10 @@ const SearchBar = ({searchVal, blogs}) => {
         <div className="searchBox">
         <input type="text" id="search" placeholder="enter author name to search" value={search} onChange={handleChange} />
         <button onClick={()=>searchVal(search)}>search</button>
-        {/* console.log(blogs); */}
+
         
         </div>
-        <List search={search} />
+       
     );
     
 }
