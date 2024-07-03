@@ -33,8 +33,8 @@ const List = () => {
     
     return ( 
         <div className="blogslist"> 
-            <SearchBar searchVal={searchVal}/>
-            <ListCall Blogs={Blogs} title="All todo list" deleteBlog={deleteBlog} />
+            {/* <SearchBar searchVal={searchVal}/> */}
+            {/* <ListCall Blogs={Blogs} title="All todo list" deleteBlog={deleteBlog} /> */}
         </div>
     );
 }

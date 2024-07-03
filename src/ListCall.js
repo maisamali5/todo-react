@@ -1,16 +1,16 @@
-const ListCall = ({Blogs , title, deleteBlog}) => {
-    return (
+// const ListCall = () => {
 
-        <div className="container"> 
-            <h2> {title} </h2> 
-                {Blogs.map((blog) => (    
-                <div className="blog-preview" key={blog.id}>
-                    <h2>{blog.title}</h2>
-                    <p>Written by {blog.author}</p>
-                    <input type="button" value="Delete" onClick={()=> deleteBlog(blog.id)} />
-                </div>
-            ))}
-        </div>
-    );
-}
-export default ListCall;
+//     return (
+
+//         <div className="container"> 
+//             <h2> {title} </h2> 
+//                 {Lists.map((list) => (    
+//                 <div className="blog-preview" key={list.id}>
+//                     <h2>{list.input}</h2>
+//                     {/* <input type="button" value="Delete" onClick={()=> deleteBlog(list.id)} /> */}
+//                 </div>
+//             ))}
+//         </div>
+//     );
+// }
+// export default ListCall;
