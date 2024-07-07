@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import "./App.css";
-// import ListCall from "./ListCall";
+
 
 const SearchBar = () => {
-  const [ListTask, setListTask] = useState([]); 
-  let [addBox, setaddBox] = useState("");
-
+  const [ListTask, setListTask] = useState(""); 
+  const [addBox, setaddBox] = useState("");
+  const [Await , setAwait] = useState(false);
 
   const handleChange = (e) => {
     setaddBox(e.target.value);
@@ -15,7 +15,7 @@ const SearchBar = () => {
     if (addBox) {
       setListTask([...ListTask, { input: addBox, id: ListTask.length + 1 }]);
       setaddBox("");
-      console.log(ListTask);
+      setAwait(true); 
     }
   };
 
@@ -36,15 +36,20 @@ const SearchBar = () => {
       />
       <button className="btn" onClick={() => addTodo(addBox)}>Add task </button>
       
-      <div className="container"> 
-            <h1> All Todo task list </h1> 
+      {Await && <div className="container"> 
+            <h1> All Todo task list </h1>
                 {ListTask.map((list) => (    
                 <div className="blog-preview" key={list.id}>
-                    <h2>{list.input}</h2>
-                    <input type="button" value="Delete" onClick={()=>deleteTask(list.id)} />
+                    <h3>{list.input}</h3>
+                    <input className="btn" type="button" value="Delete" onClick={()=>deleteTask(list.id)} style={
+                    {backgroundColor: 'red',color: 'white',
+                      border: 'none',padding: '10px',
+                      borderRadius: '5px',cursor: 'pointer',
+                    margin: '10px'}  
+                    } />
                 </div>
             ))}
-        </div>
+        </div>}
 
     </div>
   );
