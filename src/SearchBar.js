@@ -3,8 +3,8 @@ import "./App.css";
 
 
 const SearchBar = () => {
-  const [ListTask, setListTask] = useState(""); 
-  const [DummyList, setDummyList] = useState('');
+  const [ListTask, setListTask] = useState([]); 
+  const [DummyList, setDummyList] = useState([]);
  const [addBox, setaddBox] = useState("");
   const [Await , setAwait] = useState(false);
   const [Search, setSearch] = useState(false);
@@ -12,7 +12,6 @@ const SearchBar = () => {
 
   const handleChange = (e) => {
     setaddBox(e.target.value);
-
     if(ListTask.length > 0 && addBox !== "") {
       setDummyList(ListTask.filter(list => list.input.includes(addBox)));
       setAwait(true);
@@ -22,23 +21,25 @@ const SearchBar = () => {
   };
 
   const addTodo = (addBox) => {
-    if (addBox && ListTask.length === 0) {
+    if (addBox && !ListTask.find(list => list.input === addBox)) {
       setSearch(false);
       setNonSearch(true);
       setAwait(true);
       setListTask([...ListTask, { input: addBox, id: ListTask.length + 1 }]);
       setaddBox("");
       setDummyList(ListTask);
-    }else if(ListTask.filter(list => list.input.includes(addBox))){
-      alert("Task already exist");
+    }else if(ListTask.find(list => list.input === addBox)){
+      alert('Task already exist');
     }
-  };
+    else {
+      alert('Please enter a task to add');
+    }
+    };
 
   const deleteTask = (id) => {
     const newList = ListTask.filter(list => list.id !== id);
     setListTask(newList);
-}
-
+};
 
   return (
     <div className="searchBox">
